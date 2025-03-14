@@ -6,10 +6,6 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# Install required Python packages if not already installed
-echo -e "${YELLOW}Checking required Python packages...${NC}"
-pip install pyyaml > /dev/null 2>&1 || echo "PyYAML already installed"
-
 # Create directories if they don't exist
 mkdir -p .chalice/cloudformation
 
