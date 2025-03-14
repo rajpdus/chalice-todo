@@ -2,3 +2,4 @@
 .chalice/venv/
 .chalice/cloudformation/*.zip
 .chalice/cloudformation/sam.yaml
+__pycache__/
