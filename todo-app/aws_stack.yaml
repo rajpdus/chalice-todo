@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Additional resources for Todo App'
+
+Resources:
+  TodoAppTasksTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: todo-app-tasks
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      Tags:
+        - Key: Application
+          Value: TodoApp
+
+Outputs:
+  TodoTableName:
+    Description: Name of the DynamoDB table for Todo items
+    Value: !Ref TodoAppTasksTable
+    Export:
+      Name: TodoApp-TableName
+  TodoTableArn:
+    Description: ARN of the DynamoDB table for Todo items
+    Value: !GetAtt TodoAppTasksTable.Arn
+    Export:
+      Name: TodoApp-TableArn 
